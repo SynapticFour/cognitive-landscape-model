@@ -13,6 +13,7 @@
 
 - **[Main README](../README.md)** — Complete overview and quick start
 - **[Local Setup Guide](./LOCAL_SETUP.md)** — Development environment
+- **[Command reference](./COMMANDS.md)** — npm, Makefile, and setup script
 - **[Architecture](./ARCHITECTURE.md)** — Layer diagram, dependencies, testing strategy
 
 #### Research Documentation
