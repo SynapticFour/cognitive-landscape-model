@@ -1,0 +1,48 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# build & coverage
+/dist/
+/build/
+/coverage/
+*.tsbuildinfo
+
+# testing
+/test-results/
+/playwright-report/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# environment
+.env
+.env.*
+!.env.example
+
+# editor & OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+
+# CLM local research artifacts — never commit participant data
+clm-research-data/
+simulation-exports/
+calibration-sessions/
+research-data/
+
+# lock files (keep package-lock.json)
+yarn.lock
+pnpm-lock.yaml
+
+# misc
+*.pem
+tmp/
+temp/

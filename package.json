@@ -1,0 +1,33 @@
+{
+  "name": "cognitive-landscape-model",
+  "version": "0.2.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Cognitive Landscape Model — research-grade layered architecture for continuous cognitive profiling",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "setup": "./setup.sh",
+    "type-check": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:boundaries": "vitest run tests/boundaries",
+    "test:integration": "vitest run tests/integration",
+    "test:golden": "vitest run tests/golden",
+    "check": "npm run type-check && npm run test",
+    "verify": "./verify-gitignore.sh",
+    "clean": "rm -rf coverage dist packages/*/dist && find . -name '*.tsbuildinfo' -delete 2>/dev/null || true",
+    "status": "./setup.sh status"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@vitest/coverage-v8": "^3.2.4",
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
