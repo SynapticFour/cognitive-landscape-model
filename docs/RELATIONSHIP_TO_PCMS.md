@@ -32,9 +32,15 @@ CLM must remain usable **without** the PCMS web stack. PCMS may adopt CLM packag
 
 Early CLM prototypes mirrored PCMS snapshot types (`LandscapeSnapshot`, legacy dynamics/structural snapshots). These remain **deprecated**; new work should use `CognitiveState` and modern layer APIs. See root README migration table.
 
+## Programme foundation (CLRP)
+
+Both PCMS and CLM are implementations within the [Cognitive Landscape Research Programme (CLRP)](https://github.com/SynapticFour/cognitive-landscape-research-programme). Programme principles, vocabulary, and evidence standards are **authoritative in CLRP**, not in either implementation repository.
+
+See CLRP [relationship docs](https://github.com/SynapticFour/cognitive-landscape-research-programme/tree/main/docs/ecosystem) for boundary rules.
+
 ## Licensing and governance
 
-Both projects use the **MIT License** and Synaptic Four governance documents (security, code of conduct, ethics framing). Forks and integrators inherit responsibility for their own deployments — see [`ethics.md`](./ethics.md).
+Both projects use the **MIT License** for software. Programme documentation is [CC BY 4.0](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/main/LICENSE-docs). Forks and integrators inherit responsibility for their own deployments — see [`ethics.md`](./ethics.md) and [CLRP-007](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-007-non-diagnostic-commitment.md).
 
 ## Where to start integrating
 

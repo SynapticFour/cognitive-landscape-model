@@ -2,57 +2,27 @@
 
 **Audience:** researchers, institutional reviewers, and funders evaluating the Cognitive Landscape Model (CLM).
 
-This document states what evidence **exists today**, what **does not**, and what a **minimum credible path** toward publication-grade use looks like. CLM is a **layered modeling framework**; any production instrument (e.g. built on PCMS + CLM) requires its own validation programme.
+> **Authoritative status report:** [CLRP-VR-2026-002](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/validation/CLRP-VR-2026-002-clm-framework-status.md) in the [Cognitive Landscape Research Programme (CLRP)](https://github.com/SynapticFour/cognitive-landscape-research-programme).  
+> **Programme evidence standards:** [CLRP-006](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-006-evidence-and-validation.md).
 
----
+This file is a **local pointer** for CLM developers. Framework validation tier, claims matrix, and integrator responsibilities live in CLRP-VR-2026-002.
 
-## Current status (be honest)
+## CLM-specific references
 
-### Framework vs instrument
+| Document | Purpose |
+|----------|---------|
+| [`RESEARCH_ACTION_PLAN.md`](./RESEARCH_ACTION_PLAN.md) | Phased integration and evidence path |
+| [`ARCHITECTURE.md`](./ARCHITECTURE.md) | Layer diagram and dependency rules |
+| [`RELATIONSHIP_TO_PCMS.md`](./RELATIONSHIP_TO_PCMS.md) | PCMS bridge and golden vectors |
+| [`tests/integration/`](../tests/integration/) | PCMS pipeline conformance tests |
 
-CLM provides **typed layers**, **simulation mechanics**, and **separation of measurement from interpretation**. It does **not** by itself constitute a validated psychometric instrument. Package tests demonstrate **internal consistency of code**, not **external validity** of scores in human populations.
+## Instrument input
 
-### Structural and dynamics parameters
+When CLM consumes PCMS coordinates, see [CLRP-VR-2026-001](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/validation/CLRP-VR-2026-001-pcms-instrument-status.md) for assessment validation status.
 
-Latent priors, influence weights, and dynamics roles in presets (`createAbstractStructuralModel`, `createPcmsStructuralModel`) are **design- and literature-informed hypotheses**, not parameters estimated from a dedicated CLM normative corpus.
+## Revision
 
-### PCMS integration
-
-When CLM consumes PCMS dimensions via `@clm/landscape`, **PCMS validation status applies to the assessment input**. See PCMS [`VALIDATION_PROTOCOL.md`](../../perceptual-cognitive-mapping-system/docs/VALIDATION_PROTOCOL.md) in the companion repository.
-
-### Simulation outputs
-
-Simulated trajectories are **model outputs** under stated feedback and structural assumptions. They must not be presented as observed longitudinal data without explicit labeling.
-
----
-
-## Validation roadmap (Phase 1 — minimum for research publication using CLM)
-
-1. **Define the instrument boundary** — Which layers are in scope (landscape only vs full pipeline)?
-2. **Pilot sample** — Document N, locale, consent, and inclusion criteria for any human data entering the pipeline.
-3. **Reliability** — Report sample-based reliability for **observed dimensions** of the integrator’s instrument, not CLM unit tests.
-4. **Simulation validation** — Where simulations inform claims, report sensitivity to priors, seeds, and graph specification.
-5. **Interpretation firewall** — Demonstrate that worldview narratives are optional, non-causal, and never fed back into measurement code (CLM boundary tests are necessary but not sufficient for your deployment audit).
-
----
-
-## What CLM CANNOT currently claim
-
-- That simulated trajectories **predict real-world outcomes** without empirical longitudinal studies.
-- That structural calibration **identifies latent traits** in a clinical or diagnostic sense.
-- That interpretation plugins **explain causes** of measured coordinates (they explicitly do not).
-- That presets are **locally normed** in any geography without integrator-run norm studies.
-
----
-
-## What integrators need that the library does not provide
-
-- Privacy policy, consent flows, and retention rules for stored states
-- IRB / ethics approval for human subjects research
-- Locale-appropriate information sheets and non-stigmatising copy
-- Decision rules for any institutional use (employment, placement, clinical triage) — **out of scope and discouraged**
-
----
+When CLRP-VR-2026-002 is updated, refresh the link above if the release tag changes. Do not duplicate normative status text here — edit CLRP-VR instead.
 
 ## Contact
 

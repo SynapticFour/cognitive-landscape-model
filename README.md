@@ -15,6 +15,19 @@ A scientifically grounded **library and research codebase** for representing cog
 >
 > [Why no labels? →](#design-philosophy)
 
+### Programme foundation
+
+CLM is a **computational implementation** within the [Cognitive Landscape Research Programme (CLRP)](https://github.com/SynapticFour/cognitive-landscape-research-programme) — the implementation-independent home of programme principles, vocabulary, and evidence standards.
+
+| | CLRP | CLM (this repo) |
+|---|------|-----------------|
+| **Role** | Programme constitution | Modelling library |
+| **Documents** | [CLRP-000–009](https://github.com/SynapticFour/cognitive-landscape-research-programme/tree/main/clrp) | APIs, packages, tests |
+
+**Conformance target:** `clrp-v2026.1` — [CLRP-005](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-005-layer-separation.md), [CLRP-007](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-007-non-diagnostic-commitment.md), [CLRP-009](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-009-implementations-and-conformance.md) (partial — landscape/dynamics/structural layers).
+
+Normative ethics and validation framing: **CLRP**. Implementation detail: **this repository**.
+
 ---
 
 ### Validation status (researchers & funders)
@@ -26,7 +39,8 @@ CLM is a **modeling framework**, not a finished assessment instrument. Layer imp
 Start with these documents:
 
 - **Validation status:** [`docs/VALIDATION_PROTOCOL.md`](./docs/VALIDATION_PROTOCOL.md)
-- **Ethics and appropriate use:** [`docs/ethics.md`](./docs/ethics.md)
+- **Programme principles (CLRP):** [Cognitive Landscape Research Programme](https://github.com/SynapticFour/cognitive-landscape-research-programme)
+- **Ethics and appropriate use:** [`docs/ethics.md`](./docs/ethics.md) (CLM deployment notes; normative: [CLRP-007](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-007-non-diagnostic-commitment.md))
 - **Relationship to PCMS:** [`docs/RELATIONSHIP_TO_PCMS.md`](./docs/RELATIONSHIP_TO_PCMS.md)
 - **Architecture:** [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)
 - **Documentation index:** [`docs/README.md`](./docs/README.md)

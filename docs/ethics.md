@@ -1,6 +1,8 @@
 # Ethics Framework v0.2
 ## Cognitive Landscape Model (CLM)
 
+> **Normative programme commitment:** [CLRP-007: Non-Diagnostic Commitment](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-007-non-diagnostic-commitment.md) in the [Cognitive Landscape Research Programme (CLRP)](https://github.com/SynapticFour/cognitive-landscape-research-programme). This document adds **CLM- and integrator-specific** deployment notes.
+
 ## Overview
 
 The Cognitive Landscape Model (CLM) is a **research-grade TypeScript framework** for representing and simulating cognitive diversity using **continuous dimensional modeling**. It maintains strict separation between **measurement**, **mechanistic trajectory explanation**, and **non-causal worldview interpretation**.
@@ -102,7 +104,8 @@ Cross-country research requires per-jurisdiction lawful basis and information sh
 
 ## Related documents
 
-- [`VALIDATION_PROTOCOL.md`](./VALIDATION_PROTOCOL.md)
+- [CLRP-007 Non-Diagnostic Commitment](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-007-non-diagnostic-commitment.md) — normative programme commitment
+- [`VALIDATION_PROTOCOL.md`](./VALIDATION_PROTOCOL.md) — pointer to [CLRP-VR-2026-002](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/validation/CLRP-VR-2026-002-clm-framework-status.md)
 - [`RELATIONSHIP_TO_PCMS.md`](./RELATIONSHIP_TO_PCMS.md)
 - PCMS [`ethics.md`](../../perceptual-cognitive-mapping-system/docs/ethics.md) — full assessment-flow ethics
 

@@ -1,9 +1,11 @@
 # CLM Documentation Index
 ## Cognitive Landscape Model v0.2 (Research-Grade)
 
+> **Programme foundation:** Normative principles live in the [Cognitive Landscape Research Programme (CLRP)](https://github.com/SynapticFour/cognitive-landscape-research-programme). This index covers **CLM implementation** documentation only.
+
 ### Audience Guide
 
-- **Partners / institutions / interested stakeholders:** focus on Validation, Ethics, and Relationship to PCMS.
+- **Partners / institutions / interested stakeholders:** start with [CLRP](https://github.com/SynapticFour/cognitive-landscape-research-programme), then Validation, Ethics, and Relationship to PCMS.
 - **Researchers:** use Validation Protocol, Research Action Plan, Whitepaper, and Architecture.
 - **Maintainers / contributors:** use Contributing, Architecture, and package-level tests.
 
