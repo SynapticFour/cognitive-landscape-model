@@ -19,15 +19,29 @@
     "check": "npm run type-check && npm run test",
     "verify": "./verify-gitignore.sh",
     "clean": "rm -rf coverage dist packages/*/dist && find . -name '*.tsbuildinfo' -delete 2>/dev/null || true",
-    "status": "./setup.sh status"
+    "status": "./setup.sh status",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^22.10.5",
     "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^10.7.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.9.5",
     "typescript": "^5.7.3",
     "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=18"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

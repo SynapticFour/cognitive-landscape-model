@@ -46,3 +46,4 @@ pnpm-lock.yaml
 *.pem
 tmp/
 temp/
+node_modules/
