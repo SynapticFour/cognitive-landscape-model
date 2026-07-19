@@ -25,6 +25,15 @@ export {
 } from './structural-modulation.js';
 
 export {
+  deriveEmergentTopology,
+  type EmergentAttractor,
+  type EmergentTopology,
+  type TopologySamplingConfig,
+} from './emergent-topology.js';
+
+export { euclideanDistance } from './attractor.js';
+
+export {
   appendObservation,
   createDynamicsSnapshot,
   estimateVelocities,

@@ -12,7 +12,7 @@ export interface AttractorMatch {
   readonly withinBasin: boolean;
 }
 
-function euclideanDistance(
+export function euclideanDistance(
   a: Readonly<Record<string, number>>,
   b: Readonly<Record<string, number>>,
   dimensionIds: readonly string[]
