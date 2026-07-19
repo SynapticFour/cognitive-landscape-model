@@ -130,6 +130,37 @@ describe('deriveEmergentTopology', () => {
     expect(Number.isFinite(topology.unclassifiedFraction)).toBe(true);
   });
 
+  it('routes weakly supported clusters to unclassifiedFraction when minClusterSupport is raised', () => {
+    const structuralModel = createPcmsStructuralModel();
+    const feedbackGraph = buildPcmsFeedbackGraph();
+    const baseConfig = {
+      structuralModel,
+      feedbackGraph,
+      dimensionIds: [...PCMS_OBSERVED_DIMENSIONS],
+      sampleCount: 48,
+      seedStates: [
+        polarizedSeed(['F', 'P', 'S'], ['E', 'R', 'C']),
+        polarizedSeed(['T', 'I', 'A', 'V'], ['F', 'P']),
+        neutralSeed(),
+      ],
+      convergenceSteps: 80,
+      convergenceTolerance: 0.002,
+      clusterRadius: 0.12,
+      random: createSeededRandom(20260720),
+    } as const;
+
+    const permissive = deriveEmergentTopology(baseConfig);
+    const strict = deriveEmergentTopology({ ...baseConfig, minClusterSupport: 5 });
+
+    expect(permissive.attractors.length).toBeGreaterThan(strict.attractors.length);
+    expect(strict.unclassifiedFraction).toBeGreaterThan(permissive.unclassifiedFraction);
+    for (const attractor of strict.attractors) {
+      expect(attractor.basinSupport * baseConfig.sampleCount * baseConfig.seedStates.length).toBeGreaterThanOrEqual(
+        5
+      );
+    }
+  });
+
   it('does not attach ranking or quality metadata to emergent attractors', () => {
     const structuralModel = createPcmsStructuralModel();
     const feedbackGraph = buildPcmsFeedbackGraph();

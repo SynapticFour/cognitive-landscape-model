@@ -6,6 +6,12 @@
  * (commit 8364ba307e05492a965ca2f6efe42ba105a767e0 at implementation time)
  *
  * Companion to CLRP-010 §2 in the Cognitive Landscape Research Programme.
+ *
+ * CLM extension (not in CLRP-RN-2026-001): optional `minClusterSupport` on
+ * {@link TopologySamplingConfig} sets the minimum number of converged
+ * relaxations required before a cluster becomes an {@link EmergentAttractor}.
+ * The research note only sketches a support threshold without exposing it in
+ * config; this field is a later CLM-side refinement. Default remains 1.
  */
 import { StateSpace } from '@clm/landscape';
 import type { StructuralModel } from '@clm/structural';
@@ -39,6 +45,11 @@ export interface TopologySamplingConfig {
   readonly convergenceTolerance: number;
   /** Max distance between two converged points for them to count as the same attractor. */
   readonly clusterRadius: number;
+  /**
+   * Minimum converged relaxations required for a cluster to become an attractor.
+   * Defaults to 1 when omitted.
+   */
+  readonly minClusterSupport?: number;
   readonly random?: RandomSource;
 }
 
@@ -69,8 +80,7 @@ interface ClusterAccumulator {
 const DEFAULT_RANDOM_SEED = 42;
 const DEFAULT_STEP_SIZE = 0.15;
 const DEFAULT_DAMPING = 0.25;
-/** Minimum relaxations required for a cluster to become an emergent attractor. */
-const MIN_CLUSTER_SUPPORT = 1;
+const DEFAULT_MIN_CLUSTER_SUPPORT = 1;
 
 function resolveDynamicsRoles(model: StructuralModel): readonly ParameterDynamicsRole[] {
   if (model.modelId === PCMS_STRUCTURAL_MODEL_ID) {
@@ -100,6 +110,11 @@ function assertTopologySamplingConfig(config: TopologySamplingConfig): void {
   }
   if (!(config.clusterRadius > 0)) {
     throw new RangeError('clusterRadius must be > 0');
+  }
+  if (config.minClusterSupport !== undefined) {
+    if (!Number.isInteger(config.minClusterSupport) || config.minClusterSupport < 1) {
+      throw new RangeError('minClusterSupport must be a positive integer');
+    }
   }
   if (config.seedStates.length === 0) {
     throw new Error('seedStates must contain at least one initial state');
@@ -344,10 +359,11 @@ export function deriveEmergentTopology(config: TopologySamplingConfig): Emergent
     assignCluster(clusters, outcome, config.dimensionIds, config.clusterRadius);
   }
 
+  const minClusterSupport = config.minClusterSupport ?? DEFAULT_MIN_CLUSTER_SUPPORT;
   const attractors: EmergentAttractor[] = [];
 
   clusters.forEach((cluster, index) => {
-    if (cluster.members.length < MIN_CLUSTER_SUPPORT) {
+    if (cluster.members.length < minClusterSupport) {
       unclassifiedCount += cluster.members.length;
       return;
     }
