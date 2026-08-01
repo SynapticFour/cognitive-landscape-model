@@ -1,1 +1,10 @@
+#!/usr/bin/env sh
+set -e
+cd "$(dirname "$0")/.." || exit 1
+
 npx lint-staged
+
+echo "[husky] CI parity: type-check + test + verify"
+npm run type-check
+npm run test
+npm run verify
