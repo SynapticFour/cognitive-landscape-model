@@ -1,5 +1,9 @@
 # Cognitive Landscape Model (CLM) v0.2
 
+> **Development paused (2026-09).** Research modelling library, not a Synaptic Four
+> product SKU, not diagnostic, not Ferrum. `origin/main` may be quiet; exploratory
+> work may live on other branches.
+
 **Research-Grade Layered Architecture for Continuous Cognitive Profiling**
 
 **Short project description:**  
