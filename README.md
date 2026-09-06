@@ -1,8 +1,5 @@
 # Cognitive Landscape Model (CLM) v0.2
 
-Status: [STATUS.md](STATUS.md).
-
-
 > Research modelling library, not a Synaptic Four
 > product SKU, not diagnostic, not Ferrum.
 
