@@ -1,187 +1,88 @@
-# Cognitive Landscape Model (CLM) v0.2
+# Cognitive Landscape Model (CLM)
 
-**Research-Grade Layered Architecture for Continuous Cognitive Profiling**
+CLM is a library that represents ways of thinking as positions on continuous scales, and that can simulate how those positions move, without turning the result into a label.
 
-**Short project description:**  
-`Research-grade TypeScript framework for modeling cognition as a continuous multidimensional landscape — measurement layers separated from interpretation, not diagnosis, not labels.`
+For a researcher or an engineer who wants that model in TypeScript, separate from the public questionnaire that collects answers.
 
-A scientifically grounded **library and research codebase** for representing cognitive state as continuous vectors, simulating temporal dynamics, calibrating latent structure, explaining trajectories mechanistically, and mapping coordinates into optional worldview frames for **research and educational self-understanding** (not clinical diagnosis).
+**Status: No public status is recorded.** The claims registry has no maturity stage for this repository. The npm version in `package.json` is `0.2.0`. That number is not a status. A draft report, CLRP-VR-2026-002, calls the engineering checks tier T1 and says psychometric validity is not this library's result. See [docs/STATUS.md](docs/STATUS.md).
 
-> **Research Prototype | MIT License | Not a diagnostic instrument**
->
-> CLM maps cognitive tendencies as continuous dimensional profiles — not labels, not diagnoses.
-> It is designed for open research, simulation, and integration with instruments such as PCMS.
-> Results should never be used for institutional decisions about individuals.
->
-> [Why no labels? →](#design-philosophy)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-### Programme foundation
+## What it does
 
-CLM is a **computational implementation** within the [Cognitive Landscape Research Programme (CLRP)](https://github.com/SynapticFour/cognitive-landscape-research-programme) — the implementation-independent home of programme principles, vocabulary, and evidence standards.
+- `packages/landscape` holds a cognitive state as coordinates. A coordinate here is a number on a continuous axis.
+- `packages/dynamics` and `packages/structural` simulate change and a latent structure. `packages/trajectory-explanation` describes a simulated path. `packages/interpretation` reads a point through a frame and is marked non-causal.
+- Boundary tests refuse to mix interpretation into the measurement packages (`tests/boundaries/`).
+- Adapters in `@clm/landscape` can read output from the public questionnaire. The questionnaire is [PCMS](https://github.com/SynapticFour/perceptual-cognitive-mapping-system). This library does not require it. See [docs/RELATIONSHIP_TO_PCMS.md](docs/RELATIONSHIP_TO_PCMS.md).
 
-| | CLRP | CLM (this repo) |
-|---|------|-----------------|
-| **Role** | Programme constitution | Modelling library |
-| **Documents** | [CLRP-000–009](https://github.com/SynapticFour/cognitive-landscape-research-programme/tree/main/clrp) | APIs, packages, tests |
+The programme that states the principles is the [Cognitive Landscape Research Programme](https://github.com/SynapticFour/cognitive-landscape-research-programme).
 
-**Conformance target:** `clrp-v2026.1` — [CLRP-005](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-005-layer-separation.md), [CLRP-007](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-007-non-diagnostic-commitment.md), [CLRP-009](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-009-implementations-and-conformance.md) (partial — landscape/dynamics/structural layers).
+## Limits
 
-Normative ethics and validation framing: **CLRP**. Implementation detail: **this repository**.
+- Not a diagnostic instrument, not a medical device, and not medical advice. See [docs/ethics.md](docs/ethics.md).
+- Not the public questionnaire, and not a store of anyone's answers.
+- Package tests check the code. They are not an empirical sample. The draft framework report says psychometric tiers apply to the instrument, not to this library alone.
+- When the library uses questionnaire coordinates, those coordinates are still at validation tier T0 (PCMS-VALIDATION-001).
 
----
+The boundary is [docs/SCOPE.md](docs/SCOPE.md). The previous long README is kept at [docs/FROM-README.md](docs/FROM-README.md).
 
-### Validation status (researchers & funders)
+## Quick start
 
-CLM is a **modeling framework**, not a finished assessment instrument. Layer implementations are unit- and integration-tested, but **publication-standard psychometric validation** of any downstream instrument built on CLM remains the responsibility of that instrument’s operators. For an explicit statement of current limits and a research roadmap, see **[`docs/VALIDATION_PROTOCOL.md`](./docs/VALIDATION_PROTOCOL.md)** and **[`docs/RESEARCH_ACTION_PLAN.md`](./docs/RESEARCH_ACTION_PLAN.md)**.
-
-### For partners and interested institutions
-
-Start with these documents:
-
-- **Validation status:** [`docs/VALIDATION_PROTOCOL.md`](./docs/VALIDATION_PROTOCOL.md)
-- **Programme principles (CLRP):** [Cognitive Landscape Research Programme](https://github.com/SynapticFour/cognitive-landscape-research-programme)
-- **Ethics and appropriate use:** [`docs/ethics.md`](./docs/ethics.md) (CLM deployment notes; normative: [CLRP-007](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-007-non-diagnostic-commitment.md))
-- **Relationship to PCMS:** [`docs/RELATIONSHIP_TO_PCMS.md`](./docs/RELATIONSHIP_TO_PCMS.md)
-- **Architecture:** [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)
-- **Documentation index:** [`docs/README.md`](./docs/README.md)
-
----
-
-### Version labels
-
-Research documentation refers to protocol **v0.2** for reproducibility. The npm semver in `package.json` is maintained separately — pin **git commit** (or release tags, when published) for reproducible research, not the npm version alone.
-
-## Design Philosophy
-
-### Dimensions, not diagnoses
-
-CLM deliberately avoids assigning diagnostic labels. This is a considered scientific and ethical choice, not a gap.
-
-**Scientifically:** Human cognitive traits are continuously distributed. Dimensional models consistently outperform categorical models in predictive validity (Kotov et al., 2017 — HiTOP; Insel et al., 2010 — RDoC).
-
-**In cross-cultural contexts:** A clinical label assigned by a Western instrument applied without local validation can result in stigma, exclusion, or harm. CLM is designed to keep **measurement** (coordinates) separate from **interpretation** (worldview frames), so integrators can choose responsible framing for their context.
-
-**For novel discovery:** By not forcing cognitive variation into pre-existing categories, layered models can represent patterns that categorical instruments mask.
-
-### What CLM is not a replacement for
-
-CLM does not replace:
-
-- Clinical diagnostic assessment
-- Neuropsychological testing
-- Accommodation or service eligibility assessments
-
-### Two explanation models (do not conflate)
-
-| Layer | Question answered | Causal? |
-|-------|-------------------|---------|
-| **Trajectory explanation** (`@clm/trajectory-explanation`) | How did coordinates change over simulated time? | Mechanistic / causal within the model |
-| **Interpretation** (`@clm/interpretation`) | How does a worldview frame *read* a point? | Explicitly **non-causal** |
-
-## Research-Grade Features
-
-### Measurement stack
-
-- **Landscape** — `CognitiveState`, `StateSpace`, uncertainty, trajectory serialization; PCMS F–V preset
-- **Dynamics** — `FeedbackGraph`, `TransitionEngine`, `SimulationRunner`, attractors; optional structural modulation each step
-- **Structural** — latent parameters, probabilistic many-to-many influences, `CalibrationEngine`, `ProbabilisticDynamicsModulator`
-
-### Explanation stack (read-only consumers)
-
-- **Trajectory explanation** — time-aware causal chains over simulation runs
-- **Interpretation** — scientific/psychological, systems-theory, and optional Christian theological plugins
-
-### Engineering quality
-
-- **Layer separation** enforced by boundary tests (`tests/boundaries/`)
-- **End-to-end pipeline test** (`tests/integration/clm-pipeline.test.ts`)
-- **Golden vectors** for PCMS neutral profile (`tests/golden/`)
-- **MIT licensed**, Synaptic Four governance docs aligned with [PCMS](../perceptual-cognitive-mapping-system/)
-
-## Quick Start
-
-### Prerequisites
-
-- Node.js 18+
-- npm
-
-### One-command setup
+Prerequisites: Node.js 18 or newer, and npm.
 
 ```bash
-./setup.sh
-```
-
-Or via Makefile:
-
-```bash
-make setup
-```
-
-### Manual setup
-
-```bash
-git clone https://github.com/SynapticFour/cognitive-landscape-model.git
-cd cognitive-landscape-model
 npm install
 npm run check
 ```
 
-### Quality gate (recommended before release)
+When it works, Vitest prints a passing summary. The same path, including `./setup.sh`, is in [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md).
 
-```bash
-npm run check      # type-check + all tests
-npm run verify     # gitignore / artifact check
-npm run test:integration
-npm run test:golden
-```
+## Documentation
 
-## Architecture
+Every file under `docs/` is listed in [docs/README.md](docs/README.md). The groups are a tutorial, how-to guides, reference, and explanation.
 
-Five packages plus shared core — see [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
+### Tutorial
 
-```
-packages/
-  core/                    # Provenance, MeasurementBundle, unit-interval types
-  landscape/               # CognitiveState, StateSpace, PCMS preset
-  dynamics/                # Feedback, transitions, simulation
-  structural/              # Latent model, calibration, modulator
-  trajectory-explanation/  # Mechanistic trajectory narratives
-  interpretation/          # Non-causal worldview mappings
-tests/
-  boundaries/              # Import-graph separation
-  integration/             # Full pipeline
-  golden/                  # PCMS reference vectors
-```
+- [Getting started](docs/GETTING-STARTED.md)
+- [Local setup](docs/LOCAL_SETUP.md)
 
-## Relationship to PCMS
+### How-to guides
 
-The [Perceptual & Cognitive Mapping System](../perceptual-cognitive-mapping-system/) is the production **web assessment platform**. CLM extracts **measurement semantics** into `@clm/landscape` so dynamics, structure, and explanation can evolve without mixing narrative into scoring code. See [`docs/RELATIONSHIP_TO_PCMS.md`](./docs/RELATIONSHIP_TO_PCMS.md).
+- [Commands](docs/COMMANDS.md)
+- [Contributing](docs/CONTRIBUTING.md)
 
-## Privacy & data handling
+### Reference
 
-CLM is a **library** — it does not collect or store participant data by itself. Integrators who persist states or simulation outputs must provide their own privacy policy, consent, and retention controls. See [`docs/ethics.md`](./docs/ethics.md).
+- [Evidence status](docs/STATUS.md)
+- [What this is not](docs/SCOPE.md)
+- [For evaluators](docs/FOR-EVALUATORS.md)
+- [Relationship to the public questionnaire](docs/RELATIONSHIP_TO_PCMS.md)
+- [Validation pointer](docs/VALIDATION_PROTOCOL.md)
 
-## Support
+### Explanation
 
-### Contact
+- [Architecture](docs/ARCHITECTURE.md)
+- [Whitepaper](docs/whitepaper.md)
+- [Ethics](docs/ethics.md)
 
-Questions or security concerns: [contact@synapticfour.com](mailto:contact@synapticfour.com)
+## Licence
 
-## Governance
+This repository is under the MIT licence. The file is [LICENSE](LICENSE). That grant covers this software and the associated documentation files. There is no second licence file in this repository. This is not legal advice. The claims registry has no separate CLM licence sentence.
 
-- Contribution guide: [`CONTRIBUTING.md`](./CONTRIBUTING.md) · [`docs/CONTRIBUTING.md`](./docs/CONTRIBUTING.md)
-- Security policy: [`SECURITY.md`](./SECURITY.md)
-- Code of conduct: [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md)
-- Releasing: [`RELEASING.md`](./RELEASING.md)
+## Cite
 
-## Legal Notice
+Use [CITATION.cff](CITATION.cff). Prefer that file over a hand-copied line.
 
-This repository documents technical capabilities and research operating guidance. It is not legal advice and does not by itself provide regulatory certification or compliance guarantees. Compliance outcomes depend on operator configuration, contracts, and organisational controls.
+## Website
 
-## License
+- Open research: [https://synapticfour.com/en/offene-forschung/](https://synapticfour.com/en/offene-forschung/)
+- The base: [https://synapticfour.com/en/offene-forschung/unterbau/](https://synapticfour.com/en/offene-forschung/unterbau/)
+- Technical profile: [https://synapticfour.com/en/technical/code/](https://synapticfour.com/en/technical/code/)
 
-This project is licensed under the MIT License — see [`LICENSE`](./LICENSE).
+The same pages exist in German (`/de/offene-forschung/`, `/de/offene-forschung/unterbau/`, `/de/technik/code/`) and in French (`/fr/offene-forschung/`, `/fr/offene-forschung/unterbau/`, `/fr/technique/code/`).
 
----
+The map of repositories: [profile/README.md](https://github.com/SynapticFour/.github/blob/main/profile/README.md).
 
-**Important**: This system is for **research, education, and self-understanding** only. It is **not** a medical, diagnostic, or therapeutic tool, **not** a selection or placement test, and **not** a substitute for professional advice. Deploying derived tools with young people or in schools requires **local ethical review**, appropriate consent or assent, and often a customised build. For health concerns, people should consult qualified professionals in their own context.
+Contact: [contact@synapticfour.com](mailto:contact@synapticfour.com)
+
+Changelog: [CHANGELOG.md](CHANGELOG.md). Security: [SECURITY.md](SECURITY.md). Contributing: [CONTRIBUTING.md](CONTRIBUTING.md).

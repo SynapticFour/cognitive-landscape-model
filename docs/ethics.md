@@ -7,7 +7,7 @@
 
 The Cognitive Landscape Model (CLM) is a **research-grade TypeScript framework** for representing and simulating cognitive diversity using **continuous dimensional modeling**. It maintains strict separation between **measurement**, **mechanistic trajectory explanation**, and **non-causal worldview interpretation**.
 
-This document outlines ethical expectations for **maintainers, integrators, and researchers** using CLM — whether standalone or alongside the [Perceptual & Cognitive Mapping System (PCMS)](../perceptual-cognitive-mapping-system/).
+This document outlines ethical expectations for **maintainers, integrators, and researchers** using CLM — whether standalone or alongside the [Perceptual & Cognitive Mapping System (PCMS)](https://github.com/SynapticFour/perceptual-cognitive-mapping-system).
 
 ## Critical Non-Diagnostic Clarification
 
@@ -107,7 +107,7 @@ Cross-country research requires per-jurisdiction lawful basis and information sh
 - [CLRP-007 Non-Diagnostic Commitment](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/clrp/CLRP-007-non-diagnostic-commitment.md) — normative programme commitment
 - [`VALIDATION_PROTOCOL.md`](./VALIDATION_PROTOCOL.md) — pointer to [CLRP-VR-2026-002](https://github.com/SynapticFour/cognitive-landscape-research-programme/blob/clrp-v2026.1/validation/CLRP-VR-2026-002-clm-framework-status.md)
 - [`RELATIONSHIP_TO_PCMS.md`](./RELATIONSHIP_TO_PCMS.md)
-- PCMS [`ethics.md`](../../perceptual-cognitive-mapping-system/docs/ethics.md) — full assessment-flow ethics
+- PCMS [`ethics.md`](https://github.com/SynapticFour/perceptual-cognitive-mapping-system/blob/main/docs/ethics.md) — full assessment-flow ethics
 
 ---
 

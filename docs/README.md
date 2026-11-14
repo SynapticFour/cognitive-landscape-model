@@ -1,74 +1,42 @@
-# CLM Documentation Index
-## Cognitive Landscape Model v0.2 (Research-Grade)
+# CLM documentation
 
-> **Programme foundation:** Normative principles live in the [Cognitive Landscape Research Programme (CLRP)](https://github.com/SynapticFour/cognitive-landscape-research-programme). This index covers **CLM implementation** documentation only.
+Every document under `docs/`, grouped as a tutorial, how-to guides, reference, and explanation. One line each.
 
-### Audience Guide
+Read [STATUS.md](STATUS.md) before citing a test run as scientific validity.
 
-- **Partners / institutions / interested stakeholders:** start with [CLRP](https://github.com/SynapticFour/cognitive-landscape-research-programme), then Validation, Ethics, and Relationship to PCMS.
-- **Researchers:** use Validation Protocol, Research Action Plan, Whitepaper, and Architecture.
-- **Maintainers / contributors:** use Contributing, Architecture, and package-level tests.
+## Tutorial
 
-### Core Documentation
+| Document | What it is |
+|----------|------------|
+| [GETTING-STARTED.md](GETTING-STARTED.md) | Install the library and run the check |
+| [LOCAL_SETUP.md](LOCAL_SETUP.md) | Longer setup notes, including an optional PCMS clone |
 
-#### Getting Started
+## How-to guides
 
-- **[Main README](../README.md)** — Complete overview and quick start
-- **[Local Setup Guide](./LOCAL_SETUP.md)** — Development environment
-- **[Command reference](./COMMANDS.md)** — npm, Makefile, and setup script
-- **[Architecture](./ARCHITECTURE.md)** — Layer diagram, dependencies, testing strategy
+| Document | What it is |
+|----------|------------|
+| [COMMANDS.md](COMMANDS.md) | npm, Make, and the setup script |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to change this repository |
+| [RESEARCH_ACTION_PLAN.md](RESEARCH_ACTION_PLAN.md) | Phased plan for evidence and integration |
 
-#### Research Documentation
+## Reference
 
-- **[Validation protocol](./VALIDATION_PROTOCOL.md)** — Honest status and Phase 1 bar (funders / IRB)
-- **[Research action plan](./RESEARCH_ACTION_PLAN.md)** — Phased path to evidence and integration
-- **[Whitepaper](./whitepaper.md)** — Technical and theoretical foundation
-- **[Relationship to PCMS](./RELATIONSHIP_TO_PCMS.md)** — How CLM relates to the production assessment app
-- **[Research materials](../lib/research/methodology.md)** — Methodology notes
+| Document | What it is |
+|----------|------------|
+| [FOR-EVALUATORS.md](FOR-EVALUATORS.md) | What a passing check shows and what it does not show |
+| [RELATIONSHIP_TO_PCMS.md](RELATIONSHIP_TO_PCMS.md) | How this library relates to the public questionnaire |
+| [SCOPE.md](SCOPE.md) | What this repository is not |
+| [STATUS.md](STATUS.md) | No public maturity stage, and the draft tier T1 report |
+| [VALIDATION_PROTOCOL.md](VALIDATION_PROTOCOL.md) | Pointer to the programme's framework status report |
 
-#### Ethics and Compliance
+## Explanation
 
-- **[Ethics Framework v0.2](./ethics.md)** — Ethical guidelines for CLM and integrators
+| Document | What it is |
+|----------|------------|
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Layers, dependencies, and the test strategy |
+| [DEVELOPER-GUIDE.md](DEVELOPER-GUIDE.md) | The previous documentation index, kept in full |
+| [ethics.md](ethics.md) | Ethical limits for maintainers and integrators |
+| [FROM-README.md](FROM-README.md) | The previous README, kept in full |
+| [whitepaper.md](whitepaper.md) | Theoretical and technical essay |
 
-#### Package map
-
-| Package | Role |
-|---------|------|
-| `@clm/core` | Shared types, provenance, `MeasurementBundle` |
-| `@clm/landscape` | `CognitiveState`, `StateSpace`, PCMS preset |
-| `@clm/dynamics` | Feedback, transitions, simulation |
-| `@clm/structural` | Latent model, calibration, modulator |
-| `@clm/trajectory-explanation` | Mechanistic trajectory narratives |
-| `@clm/interpretation` | Non-causal worldview mappings |
-
-### Quick Navigation
-
-#### Developer resources
-
-- **Setup script:** `./setup.sh`
-- **Makefile:** `make setup`, `make test`, `make verify`
-- **Quality gate:** `npm run check`
-- **Integration tests:** `npm run test:integration`
-
-#### Research data flow (library integrator)
-
-1. **Landscape** — Observe or import coordinates into `CognitiveState`
-2. **Structural** — Optionally calibrate latent posteriors from observed patterns
-3. **Dynamics** — Simulate forward with optional structural modulation
-4. **Trajectory explanation** — Generate mechanistic narrative over the run
-5. **Interpretation** — Optionally map final state through a worldview plugin (non-causal)
-
-See `tests/integration/clm-pipeline.test.ts` for a reference implementation.
-
-### Quality Assurance
-
-- TypeScript strict mode across the monorepo
-- Vitest unit tests per package
-- Boundary tests preventing interpretation imports in measurement layers
-- Golden-vector tests for PCMS neutral reference data
-
----
-
-**Last Updated**: July 6, 2026  
-**Version**: v0.2 (Research-Grade)  
-**Status**: Active development — run `npm run check` before releases
+Files outside `docs/` that the same reading needs: [CHANGELOG.md](../CHANGELOG.md), [SECURITY.md](../SECURITY.md), [CONTRIBUTING.md](../CONTRIBUTING.md), [LICENSE](../LICENSE), [CITATION.cff](../CITATION.cff), and [lib/research/methodology.md](../lib/research/methodology.md).

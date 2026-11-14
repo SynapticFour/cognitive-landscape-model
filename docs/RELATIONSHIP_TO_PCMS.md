@@ -5,11 +5,11 @@
 
 | Project | Role |
 |---------|------|
-| **[PCMS](../../perceptual-cognitive-mapping-system/)** | Production web application — adaptive questionnaire, consent, results UI, optional Supabase storage |
+| **[PCMS](https://github.com/SynapticFour/perceptual-cognitive-mapping-system)** | The public questionnaire — adaptive questions, consent, results UI, optional Supabase storage |
 | **CLM (this repo)** | Research library — layered measurement, simulation, structural calibration, explanation |
 
 PCMS answers: *“What coordinates does this person’s response pattern produce right now?”*  
-CLM answers: *“How can we represent, evolve, constrain, and explain coordinates as a landscape over time — without mixing in worldview or diagnosis?”*
+CLM answers: *“How can coordinates be represented, evolved, constrained, and explained as a landscape over time, without mixing in worldview or diagnosis?”*
 
 ## Shared semantics
 

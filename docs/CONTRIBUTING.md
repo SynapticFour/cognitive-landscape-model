@@ -1,7 +1,7 @@
 # Contributing to CLM
 ## Cognitive Landscape Model
 
-Thank you for contributing. This guide mirrors the [PCMS contributing workflow](../../perceptual-cognitive-mapping-system/docs/CONTRIBUTING.md) adapted for this TypeScript monorepo.
+Thank you for contributing. This guide mirrors the [PCMS contributing workflow](https://github.com/SynapticFour/perceptual-cognitive-mapping-system/blob/main/docs/CONTRIBUTING.md) adapted for this TypeScript monorepo.
 
 ## Code of Conduct
 

@@ -43,4 +43,4 @@ Sequenced path from research prototype toward evidence-backed integration. Adjus
 - Automated institutional decision support
 - Replacing PCMS as the public-facing assessment product
 
-See also [`VALIDATION_PROTOCOL.md`](./VALIDATION_PROTOCOL.md) and PCMS [`RESEARCH_ACTION_PLAN.md`](../../perceptual-cognitive-mapping-system/docs/RESEARCH_ACTION_PLAN.md).
+See also [`VALIDATION_PROTOCOL.md`](./VALIDATION_PROTOCOL.md) and PCMS [`RESEARCH_ACTION_PLAN.md`](https://github.com/SynapticFour/perceptual-cognitive-mapping-system/blob/main/docs/RESEARCH_ACTION_PLAN.md).
