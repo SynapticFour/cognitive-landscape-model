@@ -113,4 +113,4 @@ Maps measurement coordinates into **worldview frames** for human-readable readin
 
 ## Future integration with PCMS app
 
-Adapters in `@clm/landscape` (`pcms-adapter.ts`, `cognitive-state-bridge.ts`) convert PCMS pipeline output into `CognitiveState`. The production PCMS app can emit modern state vectors without pulling in dynamics, structural, or interpretation code.
+Adapters in `@clm/landscape` (`pcms-adapter.ts`, `cognitive-state-bridge.ts`) convert PCMS pipeline output into `CognitiveState`. The public questionnaire can emit modern state vectors without pulling in dynamics, structural, or interpretation code.

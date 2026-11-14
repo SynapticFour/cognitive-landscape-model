@@ -7,7 +7,7 @@
 - **Git**
 - **npm** (bundled with Node)
 
-Optional: clone the companion [PCMS](../perceptual-cognitive-mapping-system/) repository alongside CLM if you are integrating assessment output into `CognitiveState`.
+Optional: clone the companion [PCMS](https://github.com/SynapticFour/perceptual-cognitive-mapping-system) repository alongside CLM if you are integrating assessment output into `CognitiveState`.
 
 ### Clone and install
 
